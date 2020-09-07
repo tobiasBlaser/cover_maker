@@ -1,0 +1,28 @@
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  height: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.imageContainer,
+.uploadContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.smallButton {
+  padding: 5px;
+  min-width: 0;
+  min-height: 0;
+}
+
+.uploadedImage {
+  max-width: 500px;
+  max-height: 500px;
+}

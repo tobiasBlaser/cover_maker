@@ -1,1 +1,27 @@
+.uploadedImage {
+  max-width: 500px;
+  max-height: 500px;
+  position: absolute;
+}
 
+.imageCover {
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(
+    -20deg,
+    rgba(23, 129, 227, 0.5),
+    rgba(221, 17, 34, 0.5)
+  );
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.exportContainer {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: 220px;
+}

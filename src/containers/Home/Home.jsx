@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import ImageUploading from 'react-images-uploading';
 import styles from './home.module.css';
-import useImage from '../../hooks/useImage';
 
-function Home(props) {
-  const { image, setImage } = useImage();
+function Home({ togglePage, setData }) {
+  const [image, setImage] = useState();
   const [imageText, setImageText] = useState('');
   const [color1, setColor1] = useState('');
   const [color2, setColor2] = useState('');
@@ -13,8 +12,6 @@ function Home(props) {
   const onChange = (imageList) => {
     setImage(imageList);
   };
-
-  console.log(props);
 
   return (
     <div className="container">
@@ -39,7 +36,7 @@ function Home(props) {
               onClick={onImageUpload}
               {...dragProps}
             >
-              Click or Drop here
+              Upload image
             </button>
             &nbsp;
             {imageList.map((image, index) => (
@@ -51,13 +48,13 @@ function Home(props) {
                 />
                 <div>
                   <button
-                    className={styles.smallButton}
+                    className="smallButton"
                     onClick={() => onImageUpdate(index)}
                   >
                     Update
                   </button>
                   <button
-                    className={styles.smallButton}
+                    className="smallButton"
                     onClick={() => onImageRemove(index)}
                   >
                     Remove
@@ -76,7 +73,7 @@ function Home(props) {
           id="text"
           type="text"
         ></input>
-        <label htmlFor="color_1">Color 1:</label>
+        {/* <label htmlFor="color_1">Color 1:</label>
         <input
           value={color1}
           onChange={(v) => setColor1(v.target.value)}
@@ -89,14 +86,17 @@ function Home(props) {
           onChange={(v) => setColor2(v.target.value)}
           id="color_2"
           type="text"
-        ></input>
-        <button
-          onClick={() => {
-            props.togglePage(false);
-          }}
-        >
-          Generate Cover
-        </button>
+        ></input> */}
+        {image && (
+          <button
+            onClick={() => {
+              setData({ image: image[0], imageText, color1, color2 });
+              togglePage(false);
+            }}
+          >
+            Generate Cover
+          </button>
+        )}
       </div>
     </div>
   );

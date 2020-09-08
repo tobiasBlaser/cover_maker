@@ -24,7 +24,9 @@ h2 {
 }
 
 h3 {
-  font-size: 24px;
+  font-size: 48px;
+  color: #ffffff;
+  z-index: 3;
 }
 
 button {
@@ -71,4 +73,10 @@ input {
 label {
   color: #666666;
   margin: 10px 5px 0 5px;
+}
+
+.smallButton {
+  padding: 5px;
+  min-width: 0;
+  min-height: 0;
 }

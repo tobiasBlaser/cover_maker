@@ -5,8 +5,8 @@ import styles from './home.module.css';
 function Home({ togglePage, setData }) {
   const [image, setImage] = useState();
   const [imageText, setImageText] = useState('');
-  const [color1, setColor1] = useState('');
-  const [color2, setColor2] = useState('');
+  // const [color1, setColor1] = useState('');
+  // const [color2, setColor2] = useState('');
   const maxNumber = 1;
 
   const onChange = (imageList) => {
@@ -90,7 +90,7 @@ function Home({ togglePage, setData }) {
         {image && (
           <button
             onClick={() => {
-              setData({ image: image[0], imageText, color1, color2 });
+              setData({ image: image[0], imageText });
               togglePage(false);
             }}
           >

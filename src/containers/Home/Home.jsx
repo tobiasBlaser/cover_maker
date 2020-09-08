@@ -1,20 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ImageUploading from 'react-images-uploading';
 import styles from './home.module.css';
 import useImage from '../../hooks/useImage';
 
-function Home() {
+function Home(props) {
   const { image, setImage } = useImage();
+  const [imageText, setImageText] = useState('');
+  const [color1, setColor1] = useState('');
+  const [color2, setColor2] = useState('');
   const maxNumber = 1;
-
-  const reRoute = () => {};
 
   const onChange = (imageList) => {
     setImage(imageList);
   };
 
+  console.log(props);
+
   return (
-    <div className={styles.container}>
+    <div className="container">
       <h1>Cover Maker</h1>
       <ImageUploading
         value={image}
@@ -65,15 +68,36 @@ function Home() {
           </div>
         )}
       </ImageUploading>
-      <form>
-        <label for="text">Text to show:</label>
-        <input id="text" type="text"></input>
-        <label for="color_1">Color 1:</label>
-        <input id="color_1" type="text"></input>
-        <label for="color_2">Color 2:</label>
-        <input id="color_2" type="text"></input>
-        <button>Generate Cover</button>
-      </form>
+      <div className="form">
+        <label htmlFor="text">Text to show:</label>
+        <input
+          value={imageText}
+          onChange={(v) => setImageText(v.target.value)}
+          id="text"
+          type="text"
+        ></input>
+        <label htmlFor="color_1">Color 1:</label>
+        <input
+          value={color1}
+          onChange={(v) => setColor1(v.target.value)}
+          id="color_1"
+          type="text"
+        ></input>
+        <label htmlFor="color_2">Color 2:</label>
+        <input
+          value={color2}
+          onChange={(v) => setColor2(v.target.value)}
+          id="color_2"
+          type="text"
+        ></input>
+        <button
+          onClick={() => {
+            props.togglePage(false);
+          }}
+        >
+          Generate Cover
+        </button>
+      </div>
     </div>
   );
 }

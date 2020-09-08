@@ -44,8 +44,18 @@ button:hover {
   color: #ffffff;
 }
 
-form {
+.form {
   display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  height: fit-content;
+  padding: 20px;
+  display: flex;
+  align-items: center;
   flex-direction: column;
 }
 
